@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<body>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: Aliceblue;
+}
+
+header {
+ background-color:lightblue;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+#blog-list, #create-blog {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.blog-post {
+    margin-bottom: 2em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1em;
+}
+
+.blog-post:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.blog-post h2 {
+    color: #333;
+}
+
+.date {
+    color: #777;
+}
+
+#blog-form {
+    display: grid;
+    gap: 1em;
+}
+
+#blog-form label {
+    font-weight: bold;
+}
+
+#blog-form input,
+#blog-form textarea {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+}
+
+button {
+    background-color: Cornflowerblue;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color:lightblue;
+    color: white;
+    text-align: center;
+    padding:em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+</style>
+    <header>
+        <h1>My Blog</h1>
+    </header>
+    <section id="blog-list">
+        <!-- Existing blog posts go here -->
+    </section>
+    <section id="create-blog">
+        <h2>Create a New Blog</h2>
+        <form id="blog-form">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+            
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="4" required></textarea>
+            
+            <button type="button" onclick="createBlog()">Create Blog</button>
+            
+			   
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2023 My Blog</p>
+    </footer>
+
+    <script>
+        function createBlog() {
+            // Retrieve values from the form
+            var title = document.getElementById("title").value;
+            var date = document.getElementById("date").value;
+            var content = document.getElementById("content").value;
+            var blogData = {
+                    title: title,
+                    content: content,
+                    date:date
+                };
+
+                fetch('http://localhost:8080/Blogs/save', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(blogData),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Blog created successfully!');
+                    // Redirect to the blog listing page or take any other action as needed
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to create a blog.');
+                });
+            
+            // Create a new blog post element
+            var newBlogPost = document.createElement("article");
+            newBlogPost.classList.add("blog-post");
+            newBlogPost.innerHTML = `
+                <h2>${title}</h2>
+                <p class="date">Published on ${date}</p>
+                <p>${content}</p>
+                <a href="#">Read more</a>
+            `;
+
+            // Append the new blog post to the blog list
+            document.getElementById("blog-list").appendChild(newBlogPost);
+
+            // Clear the form fields
+            document.getElementById("title").value = "";
+            document.getElementById("date").value = "";
+            document.getElementById("content").value = "";
+        }
+	
+	
+    </script>
+</body>
+</html>
