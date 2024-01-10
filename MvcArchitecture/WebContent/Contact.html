@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body bgcolor="aquamarine">
+
+	<h1>
+		<center>Prescription Deatils</center>
+	</h1>
+	<p>Gender:</p>
+
+	<input type="radio" id="Male" name="Gender" value="Male">
+	<label for="Male">Male</label>
+	<input type="radio" id="female" name="Gender" value="Female">
+	<label for="female">Female</label>
+	<input type="radio" id="Gender" name="fav_language" value="Other">
+	<label for="other">Other</label>
+	<br>
+	<br>
+	<label for="Symptoms">Symptoms:</label>
+	<br>
+	<br>
+	<textarea id="eee" name="ee" rows="4" cols="50"></textarea>
+	<p>Dignosis</p>
+	<input type="radio" id="flu" name="flu">
+	<label for="flu">Flu</label>
+	<input type="radio" id="Fever" name="Fever">
+	<label for="Fever">Fever</label>
+	<input type="radio" id="Other" name="Other">
+	<label for="Other">Other</label>
+	<br>
+	<br>
+	<label for="DrugName">DrugName:</label>
+	<br>
+	<br>
+	<input type="text" id="DrugName">
+	<br>
+	<br>
+	<input type="checkbox" id="ss" name="ss">
+	<label for="ss"> I certify that the above information is true
+		and accurate.</label>
+	<br>
+	<br>
+	<tr>
+		<td><input type=button name=TestAjax value=TestAjax
+			onClick="onClickFun()"></td>
+
+
+	</tr>
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+	<!-- <div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+ -->
+	<button id="btn">Click me!</button>
+
+	<script>
+		$(document).ready(function() {
+			$("#btn").click(function() {
+				alert("button clicked");
+				/*  $.ajax({url: "demo_test.txt", success: function(result){
+				     $("#div1").html(result); */
+			});
+		});
+	</script>
+</body>
+
+
+
+</body>
+</html>
+

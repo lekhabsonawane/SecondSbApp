@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+    const mainTabs = document.querySelectorAll("#main-tabs > li");
+
+    mainTabs.forEach(tab => {
+        tab.addEventListener("click", function () {
+            // Hide all subtabs
+            document.querySelectorAll(".sub-tabs").forEach(subtab => subtab.style.display = "none");
+
+            // Display subtabs of the clicked main tab
+            const subTabs = tab.querySelector(".sub-tabs");
+            if (subTabs) {
+                subTabs.style.display = "block";
+            }
+
+            // Add logic to load content based on the selected tab and subtab
+            const tabId = tab.querySelector("a").getAttribute("href").substring(1);
+            loadContent(tabId);
+        });
+    });
+
+    function loadContent(tabId) {
+        // Fetch and display content based on the selected tab and subtab
+        const contentSection = document.getElementById("content");
+        let content = "";
+
+        switch (tabId) {
+            case "home":
+                content = "<p>Welcome to our school website!</p>";
+                break;
+            case "about-college":
+                content = "<p>About our college...</p>";
+                break;
+            case "message1":
+                content = "<p>Message 1...</p>";
+                break;
+            case "message2":
+                content = "<p>Message 2...</p>";
+                break;
+            // Add cases for other tabs and subtabs
+            default:
+                content = "<p>Content not available.</p>";
+        }
+
+        contentSection.innerHTML = content;
+    }
+}); 
+
+
+</script>
+</head>
+<body>
+<style>
+
+body, h1, ul {
+    margin: 0;
+    padding: 0;
+    
+}
+
+header {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav {
+    background-color: #2c3e50;
+    color: white;
+}
+
+#main-tabs {
+    list-style: none;
+    padding: 0;
+}
+
+#main-tabs li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+#main-tabs a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    display: block;
+}
+
+
+.sub-tabs {
+    display: none;
+}
+
+.sub-tabs li {
+    display: block;
+    margin: 5px 0;
+}
+
+.sub-tabs a {
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    display: block;
+}
+
+#content {
+    padding: 20px;
+}
+
+footer {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+
+</style>
+    <header>
+        <h1>School Name</h1>
+        <div class="dark-mode-toggle">
+   
+</div>
+    </header>
+    <nav>
+        <ul id="main-tabs">
+            <ul id="main-tabs">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a>
+                <ul class="sub-tabs">
+                    <li><a href="#about-college">About College</a></li>
+                    <li><a href="#message1">Message 1</a></li>
+                    <li><a href="#message2">Message 2</a></li>
+                </ul>
+            </li>
+            <li><a href="#vision-mission">Vision and Mission</a></li>
+            <li><a href="#academics">Academics</a>
+                <ul class="sub-tabs">
+                    <li><a href="#bed">B. Ed</a></li>
+                    <li><a href="#dsm-ycmou">DSM Ycmou</a></li>
+                    <li><a href="#ba-ycmou">B.A. Ycmou</a></li>
+                    <li><a href="#ma-education-ycmou">M.A. Education Ycmou</a></li>
+                </ul>
+            </li>
+            <li><a href="#faculty">Faculty</a>
+                <ul class="sub-tabs">
+                    <li><a href="#admin">Admin</a></li>
+                    <li><a href="#teaching-staff">Teaching Staff</a></li>
+                    <li><a href="#non-teaching-staff">Non  Teaching Staff</a></li>
+                </ul>
+            </li>
+            <li><a href="#facilities">Facilities</a>
+                <ul class="sub-tabs">
+                    <li><a href="#classrooms">Classrooms</a></li>
+                    <li><a href="#library">Library</a></li>
+                    <li><a href="#it">Information Technologies</a></li>
+                    <li><a href="#lab">LAB</a></li>
+                    <li><a href="#gymkhana">Gymkhana</a></li>
+                    <li><a href="#medical">Medical</a></li>
+                </ul>
+            </li>
+            <li><a href="#gallery">Gallery</a>
+                <ul class="sub-tabs">
+                    <li><a href="#photos">Photos</a></li>
+                    <li><a href="#cultural-photos">Cultural Photos</a></li>
+                </ul>
+            </li>
+            <li><a href="#contact">Contact</a>
+                <ul class="sub-tabs">
+                    <li><a href="#telephone">Telephone</a></li>
+                    <li><a href="#email">Email</a></li>
+                    <li><a href="#address">Address</a></li>
+                    <li><a href="#enquiry-form">Enquiry Form</a></li>
+                </ul>
+            </li>
+        </ul>
+        </ul>
+    </nav>
+    <section id="home">
+       <h2>Welcome to my Student website</h2>
+    </section>
+      <section id="about">
+       <h2>My College name is xyz</h2>
+       <p> i am a passionate student pursuing a degree im MBA</p>
+    </section>
+    <footer>
+        <p>&copy; college website. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

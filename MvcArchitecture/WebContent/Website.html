@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Website</title>
+<script>
+    const body = document.body;
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+    const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+
+    if (isDarkMode) {
+        enableDarkMode();
+    }
+
+    function enableDarkMode() {
+        body.classList.add('dark-mode');
+        darkModeToggle.checked = true;
+        localStorage.setItem('darkMode', 'enabled');
+    }
+
+    function disableDarkMode() {
+        body.classList.remove('dark-mode');
+        darkModeToggle.checked = false;
+        localStorage.setItem('darkMode', null);
+    }
+
+    darkModeToggle.addEventListener('change', () => {
+        if (darkModeToggle.checked) {
+            enableDarkMode();
+        } else {
+            disableDarkMode();
+        }
+    });
+    </script>
+
+</head>
+<body>
+	<style>
+body {
+	font-family: 'Arial', sans-serif;
+	margin: 0;
+	padding: 0;
+	transition: background-color 0.5s, color 0.5s;
+	background-color: Aliceblue;
+}
+
+header, nav, section, footer {
+	margin: 20px;
+	padding: 20px;
+	border: 1px solid #ccc;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: CornflowerBlue;
+}
+
+nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+}
+
+nav li {
+	margin-right: 10px;
+	box-shadow: 10 20 20px rgba(20, 20, 20, 0.1);
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+.dark-mode-toggle {
+	display: flex;
+	align-items: center;
+}
+.dark-mode {
+background-color:black;
+color:white;
+}
+
+.dark-mode-toggle label {
+	margin-right: 5px;
+}
+
+.dark-mode-toggle input {
+	cursor: pointer;
+}
+
+footer {
+	text-align: center;
+	background-color: CornflowerBlue;
+}
+
+header {
+	text-align: center;
+	background-color: CornflowerBlue;
+}
+</style>
+	<header>
+		<h1>College Name</h1>
+		<p>........................................</p>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a href="#home">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#vision-mission">Vision and Mission</a></li>
+			<li><a href="#academics">Academics</a>
+			<li><a href="#faculty">Faculty</a>
+			<li><a href="#facilities">Facilities</a>
+			<li><a href="#gallery">Gallery</a>
+			<li><a href="#contact">Contact</a>
+		</ul>
+		<div class="dark-mode-toggle">
+			<label for="dark-mode-toggle">Dark Mode:</label> <input
+				type="checkbox" id="dark-mode-toggle">
+		</div>
+	</nav>
+
+	<section id="home">
+		<h2>Welcome to My College Website!</h2>
+		<p>This is where you can learn more about college</p>
+	</section>
+
+	<section id="about">
+		<h2>About College</h2>
+		<p>Message 1</p>
+		<p>Message 2</p>
+	</section>
+
+	<section id="academics">
+
+		<ul>
+			<li><a href="#bed">B. Ed</a></li>
+			<li><a href="#dsm-ycmou">DSM Ycmou</a></li>
+			<li><a href="#ba-ycmou">B.A. Ycmou</a></li>
+			<li><a href="#ma-education-ycmou">M.A. Education Ycmou</a></li>
+		</ul>
+
+	</section>
+
+	<section id="faculty">
+		<ul>
+			<li><a href="#admin">Admin</a></li>
+			<li><a href="#teaching-staff">Teaching Staff</a></li>
+			<li><a href="#non-teaching-staff">Non Teaching Staff</a></li>
+		</ul>
+
+	</section>
+	<section id="facilities">
+		<ul>
+
+			<li><a href="#classrooms">Classrooms</a></li>
+			<li><a href="#library">Library</a></li>
+			<li><a href="#it">Information Technologies</a></li>
+			<li><a href="#lab">LAB</a></li>
+			<li><a href="#gymkhana">Gymkhana</a></li>
+			<li><a href="#medical">Medical</a></li>
+		</ul>
+	</section>
+	<section id="gallery">
+		<ul>
+
+			<li><a href="#photos">Photos</a></li>
+			<img src="Path" max-width: 100%; height: auto>
+			<li><a href="#cultural-photos">Cultural Photos</a></li>
+			<img src="Path">
+			<img src="Path">
+			<img src="Path">
+		</ul>
+	</section>
+	<section id="contact">
+		<ul>
+
+
+			<li><a href="#telephone">Telephone:02561-225151</a></li>
+			<li><a href="#email">Email:226marathebedpimplner@gmail.com</a></li>
+
+			<li><a href="#address">Address:Suman Nagar,Satana
+					Road,Pimplner Tal.Sakri Dist Dhule 424306</a></li>
+			<li><a href="#enquiry-form">Enquiry Form</a></li>
+		</ul>
+		</ul>
+	</section>
+
+	<footer>
+		<p>&copy; 2023 Student Website</p>
+	</footer>
+
+
+</body>
+</html>

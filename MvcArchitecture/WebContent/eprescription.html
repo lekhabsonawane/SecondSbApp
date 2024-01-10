@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>function RegPatient()(){
+	//MvcArchitecture/WebContent/AjaxGetMessage.jsp
+	 
+	$.ajax({
+		url : 'http://localhost:8080/Patient/all',
+		data : {
+		
+			
+			    erx: 5,
+			    gender: "female",
+			    drugName: "Dolo250",
+			    symptoms: "feverish",
+			    dignosis: "Typhoid"
+			
+		},
+		success : function(responseText) {
+			alert(responseText);
+			//$('#ajaxGetUserServletResponse').text(responseText);
+			$("#result").html(responseText);
+		},
+		error : 
+			 function(err) {
+			alert(err);
+			//$('#ajaxGetUserServletResponse').text(responseText);
+		}
+	});
+	
+}</script>
+<body bgcolor="aquamarine" text="black">
+<h2>Patient Details </h2>
+
+<form action=eprescription>
+<table>
+<tr>
+  <td><label for="PatientName">Patient Name:</label><br></td>
+ <td> <input type="text" id="PatientName" name="PatientName" placeholder="Patient Name"><br></td>
+  </tr>
+  <tr>
+ <td> <label for="PatientAge">Patient Age:</label><br></td>
+  <td><input type="text" id="PatientAge" name="PatientAge"placeholder=" Patient Age "><br><br></td>
+  </tr>
+  <tr>
+  <td><label for="Email">Email</label></td>
+  <td><input type="text" id="Email" name="Email" placeholder="Email"><br><br></td>
+  </tr>
+  <tr>
+  <td><label for="MobileNo">MobileNo</label></td>
+  <td><input type="text" id="MobileNo" name="MobileNo" placeholder="MobileNo"><br><br></td>
+  </tr>
+ <!--  <tr>
+  <td><label for="Medicine" >MedicineName</label></td>
+  <td><input type="text" id="Medicine" name="Medicine" placeholder="Medicine"><br><br></td>
+  </tr> -->
+  <tr>
+ <td> <label for="AppointmentDate">Appointment Date </label></td>
+  <td>   <input type=date  id="Test_DatetimeLocal" name="AppointmentDate"><br><br></td>
+  </tr>
+ 
+  <tr>
+<!-- <!--  <td> <input type="submit" value="SendPrescription"></td></tr> -->
+<td><input type=button name=Click value=Click
+			onClick="RegPatient()"></td>
+
+   </table>
+</form> 
+</body>
+<!-- <head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+  
+<body>
+    <button id="btn">SendPrescription!</button>
+  
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                alert("button clicked");
+            });
+           
+                $("input").keyup(function(){
+                	
+                    $("input").css("background-color", "pink");
+                  });
+                $("input").keydown(function(){
+                
+                    $("input").css("background-color", "bla");
+                  });
+        });
+    </script> -->
+
+</html>
+</body>
+</html>
